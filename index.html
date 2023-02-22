@@ -197,12 +197,17 @@
           PLAYERS.forEach(function(player){
             for(i = 0; i< 3;i++){
               if(board[0][i] == player && board[1][i] ==  player&& board[2][i] == player){
-                alert(player + " wins")
-                givenAlert = "true"
+                if(givenAlert == "false"){
+                  alert(player + " wins")
+                  givenAlert = "true"
+                }
               }
               if(board[i][0] == player && board[i][1] ==  player && board[i][2] == player){
-                alert(player+ " wins")
-                givenAlert = "true"
+                if(givenAlert == "false"){
+                  alert(player+ " wins")
+                  givenAlert = "true"
+                }
+                
               }
             }
             if(board[1][1] == player && board[0][0] == player && board[2][2] == player){
@@ -213,7 +218,6 @@
               
             }
             if(board[0][2] == player && board[1][1] == player && board[2][0] == player){
-                alert(player+ " wins")
                 if(givenAlert == "false"){
                   alert(player+ " wins")
                   givenAlert = "true"
