@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "utf-8">
+    <title> Tic Tac Toe</title>
+       
+        <style>
+          button{
+            background-color:pink;
+            border: thick;
+            color: black;
+            margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 200px;
+            height: 100px;
+            text-align: center;
+            vertical-align:top;
+          }
+          #rset{
+            background-color:rgb(202, 177, 202);
+            border: thick;
+            color: black;
+            margin-right:540px;
+            text-decoration: none;
+            font-size: 18px;
+            text-align: center;
+          }
+          #resetArea{
+            padding-left: 535px;
+            padding-right: 40px;
+            padding-bottom: 50px;
+            font-size: 16px;
+            width: 50%;
+            text-align:center;
+            align-items: center;
+            justify-content: center;
+          }
+          #grid{
+            width: 800px;
+            margin: auto;
+          }
+          body{
+            background-color: lavender;
+          }
+          h1{
+             margin-left: 550px;
+          }
+          p{
+            display: inline;
+            margin-left: 580px;
+            text-align: center;
+            font-size: 20px;
+          }
+          #turnIndicator{
+            margin-left: 10px;
+            font-size: 20px;
+          }
+          </style>
+   </head>
+    <body>
+    <h1>Tic Tac Toe</h1>
+    <p> Turn: </p> 
+    <p id = "turnIndicator"> </p>
+     <div id = "grid" >
+        <script>
+          board = 
+          [
+          ["","",""],
+           ["","",""],
+           ["","",""]
+            ];
+            TURN = 'X'
+            document.getElementById("turnIndicator").innerHTML = TURN;
+            NUM_BUTTONS = 9;
+              for (let n = 0; n < NUM_BUTTONS; n++) {
+                btnNumber = n +1;
+                let temp1 = "btn" + btnNumber;
+                console.log(temp1)
+                s= "<button type= 'button' id ='" + temp1 + "'> </button>"
+                console.log(s);
+                document.write(s);
+              }
+              </script>
+        </div>
+        <div id = "resetArea">
+        <script>
+             s = "<button type = 'button' id='rset' > </button>"
+             document.write(s)
+             rset.innerHTML = "Reset";
+             document.getElementById("rset").onclick = function() {
+                   board = 
+                        [
+                        ["","",""],
+                        ["","",""],
+                        ["","",""]
+                         ];
+            btn1.innerHTML = "";
+            btn2.innerHTML = "";
+            btn3.innerHTML = "";
+            btn4.innerHTML = "";
+            btn5.innerHTML = "";
+            btn6.innerHTML = "";
+            btn7.innerHTML = "";
+            btn8.innerHTML = "";
+            btn9.innerHTML = "";
+            }
+        </script>
+      </div>
+          <script>
+            document.getElementById("btn1").onclick = function() {
+              if(board[0][0] == ""){
+                btn1.innerHTML = TURN;
+                board[0][0] = TURN;
+                checkWin()
+                changeTURN(TURN);
+              }
+            }
+            document.getElementById("btn2").onclick = function() {
+              if(board[0][1] == ""){
+              btn2.innerHTML = TURN;
+              board[0][1] = TURN;
+              checkWin()
+              changeTURN(TURN);
+              }
+            }
+            document.getElementById("btn3").onclick = function() {
+              if(board[0][2] == ""){
+              btn3.innerHTML = TURN;
+              board[0][2] = TURN;
+              checkWin()
+              changeTURN(TURN);
+              }
+            }
+            document.getElementById("btn4").onclick = function() {
+              if(board[1][0] == ""){
+              btn4.innerHTML = TURN
+              board[1][0] = TURN;
+              checkWin()
+              changeTURN(TURN);
+              }
+            }
+            document.getElementById("btn5").onclick = function() {
+              if(board[1][1] == ""){
+              btn5.innerHTML = TURN
+              board[1][1] = TURN;
+              checkWin()
+              changeTURN(TURN);
+              }
+            }
+            document.getElementById("btn6").onclick = function() {
+              if(board[1][2] == ""){
+              btn6.innerHTML = TURN
+              board[1][2] = TURN;
+              checkWin()
+              changeTURN(TURN);
+              }
+            }
+            document.getElementById("btn7").onclick = function() {
+              if(board[2][0] == ""){
+              btn7.innerHTML = TURN
+              board[2][0] = TURN;
+              checkWin()
+              changeTURN(TURN);
+              }
+            }
+            document.getElementById("btn8").onclick = function() {
+              if(board[2][1] == ""){
+              btn8.innerHTML = TURN
+              board[2][1] = TURN;
+              checkWin()
+              changeTURN(TURN);
+              }
+            } 
+            document.getElementById("btn9").onclick = function() {
+              if(board[2][2] == ""){
+              btn9.innerHTML = TURN
+              board[2][2] = TURN;
+              checkWin()
+              changeTURN(TURN);
+              }
+            }
+        function changeTURN(turn){
+          if (turn == "X"){
+            TURN  = "O"
+            document.getElementById("turnIndicator").innerHTML = TURN;
+          }
+          else{
+            TURN = "X"
+            document.getElementById("turnIndicator").innerHTML = TURN;
+          }
+        }
+        function checkWin(){
+          PLAYERS =  ["X","O"]
+          givenAlert = "false"
+          PLAYERS.forEach(function(player){
+            for(i = 0; i< 3;i++){
+              if(board[0][i] == player && board[1][i] ==  player&& board[2][i] == player){
+                alert(player + " wins")
+                givenAlert = "true"
+              }
+              if(board[i][0] == player && board[i][1] ==  player && board[i][2] == player){
+                alert(player+ " wins")
+                givenAlert = "true"
+              }
+            }
+            if(board[1][1] == player && board[0][0] == player && board[2][2] == player){
+                if(givenAlert == "false"){
+                  alert(player+ " wins")
+                  givenAlert = "true"
+                }
+              
+            }
+            if(board[0][2] == player && board[1][1] == player && board[2][0] == player){
+                alert(player+ " wins")
+                if(givenAlert == "false"){
+                  alert(player+ " wins")
+                  givenAlert = "true"
+                }
+            }
+
+        })
+        full = "true";
+          for(i = 0; i < 3; i++){
+            for(j = 0; j < 3;j++){
+              if(board [i][j] == ""){
+                full = "false";
+              }
+          }
+        }
+        if (full == "true"){
+          if(givenAlert == "false"){
+            alert("tie")
+          }  
+        }
+    }
+        </script>
+    </body>
+
+</html>
